@@ -4,6 +4,17 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL,
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: ["job", "project", "blog"],
+  singleTypes: ["about"],
+}
+
 module.exports = {
   /* Your site config here */
 
@@ -19,5 +30,9 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    },
   ],
 }
