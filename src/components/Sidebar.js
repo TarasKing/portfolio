@@ -1,7 +1,6 @@
 import React from "react"
 import Links from "../constants/links"
 import SocialLinks from "../constants/social_links"
-import { Link } from "gatsby"
 import { FaTimes } from "react-icons/fa"
 const Sidebar = ({ toggleSidebar, isOpen }) => {
   return (

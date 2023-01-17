@@ -5,34 +5,32 @@ import Title from "../components/Title"
 import Seo from "../components/Seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const About = ({
-  data: {
-    about: { nodes },
-  },
-}) => {
-  console.log(nodes[0])
-  const { title, stack, image, info_object } = nodes[0]
+const About = ({ data }) => {
+  const {
+    allContentfulAbout: { nodes: about },
+  } = data
+
+  const { title, stack, image, info } = about[0]
   return (
     <Layout>
+      <Seo title="About" description="About web developer" />
       <section className="about-page">
         <div className="section-center about-center">
           <GatsbyImage
-            image={getImage(
-              image.localFile.childrenImageSharp[0].gatsbyImageData
-            )}
+            image={getImage(image.gatsbyImageData)}
             alt={title}
             className="about-img"
           />
           <article className="about-text">
             <Title title={title} />
             <div className="about-info">
-              <p>{info_object.first}</p>
-              <p>{info_object.second}</p>
-              <p>{info_object.third}</p>
+              <p>{info.first}</p>
+              <p>{info.second}</p>
+              <p>{info.third}</p>
             </div>
             <div className="about-stack">
-              {stack.map(item => {
-                return <span key={item.id}>{item.stack_name}</span>
+              {stack.map((item, index) => {
+                return <span key={index}>{item}</span>
               })}
             </div>
           </article>
@@ -44,21 +42,14 @@ const About = ({
 
 export const query = graphql`
   query {
-    about: allStrapiAbout {
+    allContentfulAbout {
       nodes {
         title
-        stack {
-          stack_name
-          id
-        }
+        stack
         image {
-          localFile {
-            childrenImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
-            }
-          }
+          gatsbyImageData(placeholder: BLURRED)
         }
-        info_object {
+        info {
           first
           second
           third

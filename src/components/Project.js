@@ -1,21 +1,27 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { FaGithubSquare, FaShareSquare } from "react-icons/fa"
-import { Link } from "gatsby"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Carousel } from "react-bootstrap"
 
-const Project = ({ description, title, github, url, images, stack, index }) => {
+const Project = ({
+  projectDescription,
+  title,
+  github,
+  url,
+  pictures,
+  stackName,
+  index,
+}) => {
   return (
+    // <>projects</>
     <article className="project">
       <Carousel className="project-img">
-        {images &&
-          images.map((image, index) => (
+        {pictures &&
+          pictures.map((image, index) => (
             <Carousel.Item key={index}>
               <GatsbyImage
-                image={getImage(
-                  image.localFile.childImageSharp.gatsbyImageData
-                )}
+                image={getImage(image.gatsbyImageData)}
                 className="project-img"
                 alt={`${title} image number ${index + 1}`}
               />
@@ -25,10 +31,10 @@ const Project = ({ description, title, github, url, images, stack, index }) => {
       <div className="project-info">
         <span className="project-number">0{index + 1}.</span>
         <h3>{title || "default title"}</h3>
-        <p className="project-desc">{description}</p>
+        <p className="project-desc">{projectDescription}</p>
         <div className="project-stack">
-          {stack.map(item => {
-            return <span key={item.id}>{item.stack_name}</span>
+          {stackName.map((item, index) => {
+            return <span key={index}>{item}</span>
           })}
         </div>
         <div className="project-links">

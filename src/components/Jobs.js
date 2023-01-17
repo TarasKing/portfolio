@@ -6,16 +6,18 @@ import { Link } from "gatsby"
 
 const query = graphql`
   query {
-    allStrapiJob(sort: { job_order: DESC }) {
+    allContentfulJobs {
       nodes {
-        job_order
+        jobOrder
         company
-        date
+        dateInterval
         position
         location
-        desc {
-          id
-          name
+        desc
+        description {
+          _1
+          _2
+          _3
         }
       }
     }
@@ -25,22 +27,24 @@ const query = graphql`
 const Jobs = () => {
   const data = useStaticQuery(query)
   const {
-    allStrapiJob: { nodes: jobs },
+    allContentfulJobs: { nodes: jobs },
   } = data
 
   const [value, setValue] = useState(0)
-  const { company, position, date, desc, location, job_order } = jobs[value]
-  // console.log(company, position, date, desc, location, job_order)
+  const { company, position, dateInterval, desc, location } = jobs[value]
+
+  let jobsSorted = jobs.sort((a, b) => (a.jobOrder < b.jobOrder ? 1 : -1))
+
   return (
     <section className="section jobs">
       <Title title="experience" />
       <div className="jobs-center">
         {/* btn container */}
         <div className="btn-container">
-          {jobs.map((job, index) => {
+          {jobsSorted.map((job, index) => {
             return (
               <button
-                key={job.job_order}
+                key={job.jobOrder}
                 onClick={() => setValue(index)}
                 className={`job-btn ${index === value && "active-btn"}`}
               >
@@ -54,12 +58,12 @@ const Jobs = () => {
           <h3>{position}</h3>
           <h4>{company}</h4>
           <p className="job-location">{location}</p>
-          <p className="job-date">{date}</p>
-          {desc.map(item => {
+          <p className="job-date">{dateInterval}</p>
+          {desc.map((item, index) => {
             return (
-              <div key={item.id} className="job-desc">
+              <div className="job-desc" key={index}>
                 <FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
-                <p>{item.name}</p>
+                <p>{item}</p>
               </div>
             )
           })}
