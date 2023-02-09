@@ -684,6 +684,7 @@ Projects
 .project:hover .project-img::after {
   opacity: 0;
 }
+
 .project-info {
   background: var(--clr-white);
   padding: 1rem 2rem;
@@ -773,6 +774,22 @@ Projects
   .project:nth-of-type(even) .project-img {
     grid-column: 5 / -1;
     grid-row: 1 / 1;
+  }
+  .project:nth-of-type(even):hover .project-info {
+    transform: translateX(-27%);
+    transition: transform 0.5s ease-in-out;
+  }
+  .project:nth-of-type(even):hover .slide {
+    transform: translateX(27%);
+    transition: transform 0.5s ease-in-out;
+  }
+  .project:nth-of-type(odd):hover .project-info {
+    transform: translateX(27%);
+    transition: transform 0.5s ease-in-out;
+  }
+  .project:nth-of-type(odd):hover .slide {
+    transform: translateX(-27%);
+    transition: transform 0.5s ease-in-out;
   }
   .project:nth-of-type(even) .project-info {
     grid-column: 2 / span 7;

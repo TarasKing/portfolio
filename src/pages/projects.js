@@ -9,7 +9,6 @@ const ProjectsPage = ({
     allContentfulProjects: { nodes: projects },
   },
 }) => {
-  console.log(projects)
   return (
     <Layout>
       <Seo
@@ -32,7 +31,9 @@ export const query = graphql`
         url
         title
         stackName
-        projectDescription
+        projectDes {
+          des
+        }
         pictures {
           gatsbyImageData(
             height: 600

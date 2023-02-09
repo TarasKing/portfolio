@@ -3,9 +3,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { FaGithubSquare, FaShareSquare } from "react-icons/fa"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Carousel } from "react-bootstrap"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Project = ({
-  projectDescription,
+  projectDes,
   title,
   github,
   url,
@@ -14,7 +15,6 @@ const Project = ({
   index,
 }) => {
   return (
-    // <>projects</>
     <article className="project">
       <Carousel className="project-img">
         {pictures &&
@@ -31,7 +31,7 @@ const Project = ({
       <div className="project-info">
         <span className="project-number">0{index + 1}.</span>
         <h3>{title || "default title"}</h3>
-        <p className="project-desc">{projectDescription}</p>
+        <p className="project-desc">{projectDes.des}</p>
         <div className="project-stack">
           {stackName.map((item, index) => {
             return <span key={index}>{item}</span>
