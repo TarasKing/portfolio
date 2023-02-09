@@ -762,14 +762,15 @@ Projects
     height: 30rem;
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow);
+    transition: all 1s ease;
   }
   .project-info {
     border-radius: var(--radius);
     box-shadow: var(--dark-shadow);
-
     z-index: 1;
     grid-column: 5 /12;
     grid-row: 1 / 1;
+    transition: all 1s ease;
   }
   .project:nth-of-type(even) .project-img {
     grid-column: 5 / -1;
