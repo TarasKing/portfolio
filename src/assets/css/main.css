@@ -650,6 +650,21 @@ Jobs
     letter-spacing: var(--spacing);
     font-style: italic;
   }
+  .category-education-volunteer-experience {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .category-education-volunteer-experience .section-title {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .category-job-btn {
+    border: none;
+    background-color: transparent;
+    box-sizing: content-box;
+  }
 }
 
 /*
