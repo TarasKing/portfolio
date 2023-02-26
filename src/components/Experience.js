@@ -51,8 +51,6 @@ const Experience = () => {
     allContentfulVolunteer: { nodes: volunteer },
   } = data
 
-  console.log(data)
-
   const [valueJobs, setValueJobs] = useState(0)
   const [valueEducation, setValueEducation] = useState(0)
   const [valueVolunteer, setValueVolunteer] = useState(0)
