@@ -435,9 +435,6 @@ Hero
 .hero-img-svg {
   display: none;
 }
-.hero-img {
-  display: none;
-}
 .hero-info h4 {
   color: var(--clr-grey-5);
 }
