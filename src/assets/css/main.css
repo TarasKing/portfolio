@@ -1209,3 +1209,12 @@ Contact Page
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* Typed coursor */
+
+.typed-cursor {
+  color: var(--clr-primary-5);
+  font-size: 2rem;
+  font-weight: 700;
+  overflow: hidden;
+}

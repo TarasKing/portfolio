@@ -31,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
-    "react-markdown": "^8.0.4"
+    "react-markdown": "^8.0.4",
+    "typed.js": "^2.0.132"
   },
   "devDependencies": {
     "prettier": "2.2.1"
