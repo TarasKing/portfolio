@@ -9,9 +9,6 @@ const TypedText = () => {
     const typed = new Typed(el.current, {
       strings: ["<i>Web and Mobile App Developer</i>"],
       typeSpeed: 40,
-      //   showCursor: true,
-      //   cursorChar: "|",
-      //   autoInsertCss: true,
     })
 
     return () => {

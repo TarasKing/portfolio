@@ -12,7 +12,6 @@ const Hero = () => {
           <div>
             <div className="underline"></div>
             <h1>I'm Taras</h1>
-            {/* <h4>Web and Mobile App Developer</h4> */}
             <h4>
               <TypedText />
             </h4>
