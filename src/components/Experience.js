@@ -15,11 +15,6 @@ const query = graphql`
         position
         location
         desc
-        description {
-          _1
-          _2
-          _3
-        }
       }
     }
     allContentfulEducation {
